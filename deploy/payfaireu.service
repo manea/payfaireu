@@ -1,0 +1,14 @@
+[Unit]
+Description=PayFairEU Directive (EU) 2023/970 Gender Pay Gap & Art. 5/7/10 Readiness Studio
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/payfaireu
+EnvironmentFile=/etc/payfaireu/.env
+ExecStart=/usr/bin/node --no-warnings /opt/payfaireu/server/index.mjs
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

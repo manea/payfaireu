@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="equity-parchment"] {
+  --bg-canvas: #F9F9F6;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EFF1EC;
+  --bg-soft: rgba(30, 58, 138, 0.08);
+  --border-subtle: #D5DBD3;
+  --border-strong: #8F9A93;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --accent-primary: #1E3A8A;
+  --accent-primary-hover: #1D4ED8;
+  --accent-primary-fg: #FFFFFF;
+  --accent-teal: #0F766E;
+  --accent-teal-fg: #FFFFFF;
+  --accent-teal-soft: rgba(15, 118, 110, 0.12);
+  --accent-amber: #B45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.12);
+  --accent-crimson: #B91C1C;
+  --accent-crimson-fg: #FFFFFF;
+  --accent-crimson-soft: rgba(185, 28, 28, 0.11);
+  --chart-female: #0F766E;
+  --chart-male: #1E3A8A;
+  --shadow-card: 0 12px 28px -16px rgba(17, 24, 39, 0.14);
+}
+
+[data-theme="boardroom-slate"] {
+  --bg-canvas: #0A0F1A;
+  --bg-surface: #111927;
+  --bg-elevated: #172235;
+  --bg-soft: rgba(96, 165, 250, 0.15);
+  --border-subtle: #243247;
+  --border-strong: #3E5372;
+  --text-primary: #F3F6FC;
+  --text-secondary: #C1CDE0;
+  --accent-primary: #60A5FA;
+  --accent-primary-hover: #93C5FD;
+  --accent-primary-fg: #0A0F1A;
+  --accent-teal: #2DD4BF;
+  --accent-teal-fg: #0A0F1A;
+  --accent-teal-soft: rgba(45, 212, 191, 0.16);
+  --accent-amber: #FBBF24;
+  --accent-amber-soft: rgba(251, 191, 36, 0.16);
+  --accent-crimson: #F87171;
+  --accent-crimson-fg: #0A0F1A;
+  --accent-crimson-soft: rgba(248, 113, 113, 0.16);
+  --chart-female: #2DD4BF;
+  --chart-male: #60A5FA;
+  --shadow-card: 0 16px 38px -16px rgba(0, 0, 0, 0.72);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .payfair-display {
+    font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  }
+
+  .payfair-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .num-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .payfair-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+  }
+
+  .payfair-input {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    border-radius: 0.6rem;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.875rem;
+    width: 100%;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .payfair-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--bg-soft);
+  }
+
+  .payfair-input:disabled {
+    opacity: 0.68;
+    cursor: not-allowed;
+    background-color: var(--bg-elevated);
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+}

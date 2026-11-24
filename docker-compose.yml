@@ -1,0 +1,21 @@
+services:
+  payfaireu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: payfaireu
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4211:4211"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4211
+      PAYFAIREU_DATA_DIR: /app/data
+      BASE_PATH: ${BASE_PATH:-}
+      APP_ORIGIN: ${APP_ORIGIN:-}
+    volumes:
+      - payfaireu_data:/app/data
+
+volumes:
+  payfaireu_data:
